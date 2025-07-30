@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import MenuBar from "./_component/MenuBar";
 import DataProvider from "./_component/DataProvider";
 // import About from "./about";
 // import "./globals.css";
@@ -28,11 +29,17 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <hr />
-        <DataProvider>
+        {/* <hr /> */}
+        {/* <DataProvider>
           {children}
-          {/* <About /> */}
+          <About />
+        </DataProvider> */}
+        <DataProvider>
+            <MenuBar />
+            <hr />
+            {children}
         </DataProvider>
+
       </body>
     </html>
   );

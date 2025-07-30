@@ -65,10 +65,12 @@ import React,{useState } from "react"
 const Home=()=>{
     type user={
     name:string,
+    age:number,
+    email:string,
     id:string
   }
 
-  const[data,setData]=useState<user>({name: '',id:''});
+  const[data,setData]=useState<user>({name: '',age:0,email:'',id:''});
   const[saved,setSaved]=useState(false);
   const handleClick=async()=>{
      const res=await fetch("https://6888a202adf0e59551babe97.mockapi.io/Data",{
@@ -79,7 +81,7 @@ const Home=()=>{
       if (!res.ok) {
         return <p>This is Invalid Response</p>
       }
-      setData({name:"",id:""})
+      setData({name: '',age:0,email:'',id:''})
       setSaved(true)
       console.log("Data has been saved");    
   }
@@ -90,7 +92,9 @@ const Home=()=>{
     <>
       <h1>Home</h1>
       <p>This is Home Component</p>
-      <input type="text" name="name" value={data.name} onChange={handleChange} /> <br />
+      Name: <input type="text" name="name" value={data.name} onChange={handleChange} /> <br />
+      Age: <input type="text" name="age" value={data.age} onChange={handleChange} /> <br />
+      Email: <input type="text" name="email" value={data.email} onChange={handleChange} /> <br />
       <input type="button" value="Save Data" onClick={handleClick} />
       {saved && <p>Data has been Saved</p>}
       

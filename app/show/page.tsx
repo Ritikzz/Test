@@ -60,6 +60,8 @@ import { useRouter } from "next/navigation";
 
   type user={
     name:string,
+    age:number,
+    email:string,
     id:string
   }
 const Show=()=>{
@@ -106,7 +108,9 @@ const Show=()=>{
                     return(
                         <div key={row.id}>
                             <hr />
-                            {row.name} <br />
+                            <h1>{row.name}</h1>
+                            {row.age} <br />
+                            {row.email} <br />
                             <input type="button" value="Delete" onClick={()=>handleDelete(row.id)} />
                             <input type="button" value="Edit" onClick={()=>handleEdit(row.id)} />
                         </div>
