@@ -3,7 +3,6 @@ import React,{ use, useState } from "react"
 import { useData } from "../../_component/DataProvider"
 
 const Edit=({params}:{params:Promise<{id:number}>})=>{
-    console.log(params.id);
     const{id}=React.use(params);
     console.log(id);
     const {state,dispatch}=useData();
